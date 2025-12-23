@@ -1,2 +1,13 @@
-# Gradient_Boosted_Models
-using packages xgboost to create gradient boosed models
+S&P 500 Stock Screener with Gradient Boosted Models in R
+
+This project is an advanced R-based S&P 500 stock screener that combines technical analysis with machine learning. The goal is to not only identify potential buy signals using standard indicators, but also to build predictive models that can estimate stock price movements or categorize buy/sell signals. It leverages gradient boosted models (GBMs) to incorporate multiple technical indicators as features, providing a data-driven approach to stock screening and trading research.
+
+The workflow begins with live retrieval of the current S&P 500 company list from Wikipedia. Historical stock data is then fetched for each ticker using quantmod, and a variety of technical indicators are calculated, including moving averages (SMA, EMA), RSI, MACD, Bollinger Bands, ATR, Williams %R, CMF, and Stochastic Oscillators. These indicators serve as the feature set for the gradient boosted models, allowing for nuanced prediction of potential buy/sell opportunities.
+
+Model performance is carefully assessed using prediction and recall metrics rather than simple accuracy, especially for categorical models where imbalanced classes may be present. The repo includes a prediction_recall.txt file which logs model evaluation results for transparency and reproducibility. This approach ensures that the models are evaluated on their ability to correctly identify actionable signals, which is more relevant for trading applications than overall classification accuracy.
+
+To aid in model interpretation, the project includes multiple plots displaying feature importance and influence on model predictions. These visualizations are stored in the figures branch, providing an intuitive way to understand which technical indicators drive the model’s decisions. Users can explore these plots to identify the most informative signals and adjust their strategies accordingly.
+
+Additionally, the repository contains example pre-trained JSON models in the main branch. These files provide a template for how to save, share, and reload machine learning models for future predictions or integration into automated trading workflows. Users can load these models to generate predictions on new stock data or to test alternative screening strategies without retraining from scratch.
+
+The project requires several R packages for full functionality, including quantmod and TTR for technical indicators, xgboost or gbm for gradient boosted modeling, rvest for web scraping, data.table and dplyr for data handling, and ggplot2 for plotting feature importance. Overall, this repo provides a comprehensive, automated framework for S&P 500 technical analysis, machine learning-based screening, model evaluation, and visualization of key features, making it a valuable tool for traders, analysts, and data scientists interested in stock market prediction.
